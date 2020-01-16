@@ -34,7 +34,7 @@
                 v-if="$page.frontmatter.banner.indexOf('/assets/img/banner')===-1"
                 class="post-header-blur"
                 :style="{
-                  backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + $withBase($page.frontmatter.banner) + ')',
+                  backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + $page.frontmatter.banner + ')',
                 }"
               />
               <div v-else class="post-header-blur">
@@ -68,7 +68,7 @@
                 <a-popover placement="top" trigger="click" :overlay-style="{'width':'auto'}">
                   <template slot="content">
                     <div id="reward">
-                      <img v-for="(item, index) in reward" :key="index" :src="$withBase(item)" />
+                      <img v-for="(item, index) in reward" :key="index" :src="item" />
                     </div>
                   </template>
                   <a-button shape="circle" size="large">赏</a-button>

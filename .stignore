@@ -1,0 +1,12 @@
+**.git
+**docs
+**node_modules
+*.gitignore
+*.nowignore
+*.stignore
+*db.json
+*LICENSE
+*package.json
+*package-lock.json
+*README.md
+

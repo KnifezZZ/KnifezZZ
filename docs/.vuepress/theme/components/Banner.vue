@@ -31,7 +31,7 @@
             <router-link :to="post.path">
               <div class="banner">
                 <a-skeleton active :loading="loading">
-                  <img :src="$withBase(post.frontmatter.banner)" :alt="post.title" />
+                  <img :src="post.frontmatter.banner" :alt="post.title" />
                 </a-skeleton>
               </div>
               <h3>
@@ -117,7 +117,7 @@ export default {
         this.description = description
       }
       if (banner) {
-        this.banner = this.$withBase(banner)
+        this.banner = banner
       }
       if (bannerButtons) {
         this.bannerButtons = bannerButtons

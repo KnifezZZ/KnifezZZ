@@ -7,11 +7,7 @@
         tab-position="top"
         @tabClick="tabClick"
       >
-        <a-tab-pane
-          v-for="(posts, tag) in $tags"
-          :key="tag"
-          :tab="tag"
-        >
+        <a-tab-pane v-for="(posts, tag) in $tags" :key="tag" :tab="tag">
           <a-list
             class="post-list"
             item-layout="vertical"
@@ -20,28 +16,19 @@
             :grid="postGrid"
             :locale="locale"
           >
-            <a-list-item
-              slot="renderItem"
-              key="item.path"
-              slot-scope="item"
-            >
-              <template slot="actions">
-                {{ item.frontmatter.date ? fromNow(item.frontmatter.date) : '' }}
-              </template>
+            <a-list-item slot="renderItem" key="item.path" slot-scope="item">
+              <template
+                slot="actions"
+              >{{ item.frontmatter.date ? fromNow(item.frontmatter.date) : '' }}</template>
               <img
                 slot="extra"
                 width="150"
                 height="143"
                 :alt="item.title"
-                :src="$withBase(item.frontmatter.banner)"
-              >
+                :src="item.frontmatter.banner"
+              />
               <a-list-item-meta>
-                <router-link
-                  slot="title"
-                  :to="item.path"
-                >
-                  {{ item.title }}
-                </router-link>
+                <router-link slot="title" :to="item.path">{{ item.title }}</router-link>
               </a-list-item-meta>
             </a-list-item>
           </a-list>

@@ -1,36 +1,17 @@
 <template>
   <div id="yur-link">
-    <a-skeleton
-      active
-      :loading="loading"
-    >
+    <a-skeleton active :loading="loading">
       <div class="banner">
-        <a-skeleton
-          active
-          :loading="loading"
-        >
-          <img
-            :src="$withBase(link.banner)"
-            :alt="title"
-          >
+        <a-skeleton active :loading="loading">
+          <img :src="link.banner" :alt="title" />
         </a-skeleton>
       </div>
     </a-skeleton>
     <Content />
     <div class="content">
       <a-row>
-        <a-col
-          v-for="(blog, index) in link.blog"
-          :key="index"
-          :xs="24"
-          :sm="12"
-          :md="8"
-          :lg="6"
-        >
-          <a-skeleton
-            active
-            :loading="loading"
-          >
+        <a-col v-for="(blog, index) in link.blog" :key="index" :xs="24" :sm="12" :md="8" :lg="6">
+          <a-skeleton active :loading="loading">
             <div
               class="card"
               :style="{
@@ -42,12 +23,8 @@
                 class="title"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                {{ blog.title }}
-              </a>
-              <div class="subtitle">
-                {{ blog.subtitle }}
-              </div>
+              >{{ blog.title }}</a>
+              <div class="subtitle">{{ blog.subtitle }}</div>
               <a
                 :href="blog.link"
                 class="logo"

@@ -63,6 +63,10 @@
       <a-icon type="copyright" />
       {{this.$themeConfig.startYear}}-{{year}}
       &nbsp;
+      <a
+        :href="`${$themeConfig.site}/sitemap.xml`"
+      >sitemap.xml</a>
+      &nbsp;
       <a-icon type="eye" />
       <span id="/" class="leancloud_visitors" :data-flag-title="$page.title">
         <i class="leancloud-visitors-count">NaN</i>

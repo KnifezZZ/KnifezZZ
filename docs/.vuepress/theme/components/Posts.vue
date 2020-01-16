@@ -20,13 +20,7 @@
             <i class="leancloud-visitors-count">0</i>
           </span>
         </template>
-        <img
-          slot="extra"
-          width="150"
-          height="143"
-          :alt="item.title"
-          :src="$withBase(item.frontmatter.banner)"
-        />
+        <img slot="extra" width="150" height="143" :alt="item.title" :src="item.frontmatter.banner" />
         <a-list-item-meta>
           <router-link slot="title" :to="item.path">{{ item.title }}</router-link>
         </a-list-item-meta>
