@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/',
+    base: '/blog/',
     dest: 'blog',
     title: 'KnifeZ的研究记录',
     description: '热爱游戏的程序猿,.Net苦手，精通C#、.net core的拼写。在撸vue',
