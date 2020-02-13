@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/blog/',
+    base: '/',
     dest: 'blog',
     title: 'KnifeZ的研究记录',
     description: '热爱游戏的程序猿,.Net苦手，精通C#、.net core的拼写。在撸vue',
@@ -32,7 +32,7 @@ module.exports = {
     // theme: 'yurk',
     themeConfig: {
         // 站点地址
-        site: 'https://www.knifez18.com',
+        site: 'https://blog.knifez18.com',
 
         // 博主名称
         author: 'KnifeZ',
@@ -185,7 +185,7 @@ module.exports = {
     //插件管理
     plugins: {
         'sitemap': {
-            hostname: 'https://www.knifez18.com',
+            hostname: 'https://blog.knifez18.com',
         }
     },
 
