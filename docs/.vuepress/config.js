@@ -186,6 +186,7 @@ module.exports = {
     plugins: {
         'sitemap': {
             hostname: 'https://blog.knifez18.com',
+            exclude: ['/404.html']
         }
     },
 
