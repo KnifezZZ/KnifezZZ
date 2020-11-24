@@ -1,29 +1,20 @@
-# VuePress Example
+# blog
 
-This directory is a brief example of a [VuePress](https://vuepress.vuejs.org/) app that can be deployed with ZEIT Now and zero configuration.
+## Build Setup
 
-## Deploy Your Own
+```bash
+# install dependencies
+$ npm install
 
-Deploy your own VuePress project with ZEIT Now.
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/zeit/now/tree/master/examples/vuepress)
+# build for production and launch server
+$ npm run build
+$ npm run start
 
-_Live Example: https://vuepress.now-examples.now.sh_
-
-### How We Created This Example
-
-To get started with VuePress deployed with ZEIT Now, you can use the [Now CLI](https://zeit.co/download) to initialize the project:
-
-```shell
-$ now init vuepress
+# generate static project
+$ npm run generate
 ```
 
-> The only change made is to add `dest: "/public"` to the `config.js` file.
-
-### Deploying From Your Terminal
-
-You can deploy your new VuePress project with a single command from your terminal using [Now CLI](https://zeit.co/download):
-
-```shell
-$ now
-```
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
