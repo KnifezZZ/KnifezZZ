@@ -45,7 +45,7 @@
               style="width: 30%"
             />
             <img
-              :src="require('static/images/reward/wechat.png')"
+              :src="require('static/images/reward/wechat.jpg')"
               style="width: 30%"
             />
           </p>
