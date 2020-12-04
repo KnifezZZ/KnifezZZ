@@ -133,48 +133,50 @@ export default {
       this.menuClick();
     },
     menuClick () {
-      var bodyEl = document.body;
-      var content = document.querySelector(".el-main");
-      var morphEl = document.getElementById("morph-shape");
-      var s = Snap(morphEl.querySelector("svg"));
-      var path = s.select("path");
-      var initialPath = path.attr("d");
-      var steps = morphEl.getAttribute("data-morph-open").split(";");
-      var stepsTotal = steps.length;
-      var isAnimating = false;
-      if (isAnimating) return false;
-      isAnimating = true;
-      if (this.isOpen) {
-        bodyEl.setAttribute("class", "");
-        // animate path
-        setTimeout(function () {
-          // reset path
-          path.attr("d", initialPath);
-          isAnimating = false;
-        }, 300);
-      } else {
-        bodyEl.setAttribute("class", "show-menu");
-        // animate path
-        var pos = 0,
-          nextStep = function (pos) {
-            if (pos > stepsTotal - 1) {
-              isAnimating = false;
-              return;
-            }
-            path.animate(
-              { path: steps[pos] },
-              pos === 0 ? 400 : 500,
-              pos === 0 ? mina.easein : mina.elastic,
-              function () {
-                nextStep(pos);
+      if (process.browser) {
+        var bodyEl = document.body;
+        var content = document.querySelector(".el-main");
+        var morphEl = document.getElementById("morph-shape");
+        var s = Snap(morphEl.querySelector("svg"));
+        var path = s.select("path");
+        var initialPath = path.attr("d");
+        var steps = morphEl.getAttribute("data-morph-open").split(";");
+        var stepsTotal = steps.length;
+        var isAnimating = false;
+        if (isAnimating) return false;
+        isAnimating = true;
+        if (this.isOpen) {
+          bodyEl.setAttribute("class", "");
+          // animate path
+          setTimeout(function () {
+            // reset path
+            path.attr("d", initialPath);
+            isAnimating = false;
+          }, 300);
+        } else {
+          bodyEl.setAttribute("class", "show-menu");
+          // animate path
+          var pos = 0,
+            nextStep = function (pos) {
+              if (pos > stepsTotal - 1) {
+                isAnimating = false;
+                return;
               }
-            );
-            pos++;
-          };
+              path.animate(
+                { path: steps[pos] },
+                pos === 0 ? 400 : 500,
+                pos === 0 ? mina.easein : mina.elastic,
+                function () {
+                  nextStep(pos);
+                }
+              );
+              pos++;
+            };
 
-        nextStep(pos);
+          nextStep(pos);
+        }
+        this.isOpen = !this.isOpen;
       }
-      this.isOpen = !this.isOpen;
     },
   },
   mounted () {
