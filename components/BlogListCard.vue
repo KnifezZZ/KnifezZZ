@@ -1,38 +1,41 @@
 <template>
-  <el-card class="card-cell">
-    <nuxt-link :to="`/post/${item.Url}`">
-      <img
-        :src="
-          require('static/images/default-pic-' +
-            Math.floor(Math.random() * 5) +
-            '.jpg')
-        "
-        class="image"
-        style="width: 100%"
-    /></nuxt-link>
-    <div class="blog-list-item">
-      <h4>
-        <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
-      </h4>
-      <p class="tag">
-        {{ item.Blog_Category }} /
-        <span>{{ item.CreateTime }} by {{ item.CreateBy }}</span>
-        <span>
-          <i class="el-icon-view"></i>
-          {{ item.VisitCount }}
-        </span>
-        <list-tag :item="item"></list-tag>
-      </p>
-    </div>
-  </el-card>
+  <a-list
+    :grid="grid"
+    :data-source="blogs"
+  >
+    <a-list-item slot="renderItem" slot-scope="item, index">
+      <a-card class="blog-list-item">
+        <nuxt-link :to="`/post/${item.Url}`">
+          <v-poster :src="item.PosterId" width="100%"></v-poster>
+        </nuxt-link>
+        <h4>
+          <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
+        </h4>
+        <p class="tag">
+          {{ item.BlogCategory_Name }} |
+          <span
+            >{{ new Date(item.CreateTime).toLocaleString() }} by
+            {{ item.CreateBy }}</span
+          >
+          <v-icon icon="eye"> {{ item.VisitCount }}</v-icon>
+          <list-tag :item="item"></list-tag>
+        </p>
+      </a-card>
+    </a-list-item>
+  </a-list>
 </template>
 
 <script>
+import VPoster from './VPoster'
 export default {
-  name: "BlogList",
+  name: 'BlogList',
+  components: {
+    VPoster,
+  },
   props: {
-    item: Object
-  }
+    blogs: Array,
+    grid: { gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: 3 },
+  },
 }
 </script>
 

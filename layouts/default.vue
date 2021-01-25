@@ -1,17 +1,14 @@
 <template>
-  <el-container id="knifez-blog">
-    <el-container>
-      <el-header>
-        <HeaderBar class="mobile-header" />
-      </el-header>
-      <el-main>
-        <Nuxt />
-      </el-main>
-      <el-backtop target="#knifez-blog" :visibility-height="100"></el-backtop>
-    </el-container>
-    <el-footer>
+  <a-layout>
+    <a-layout-header> <Header :isMobile="isMobile" /> </a-layout-header>
+    <a-layout-content> <Nuxt /></a-layout-content>
+    <a-layout-footer>
       <span>&copy; 2019-Now</span>
-      <span>Powered By KNIFEZ</span>
+      <span>
+        Powered by .NET 5, Based on
+        <a href="https://github.com/KnifezZZ/KnifeZ.Virgo"> KnifeZ.Virgo </a>
+        development
+      </span>
       <template v-if="isHomePage">
         <span>
           <a href="http://www.beian.miit.gov.cn" target="_blank" rel="nofollow">
@@ -28,22 +25,27 @@
           </a>
         </span>
       </template>
-    </el-footer>
-  </el-container>
+    </a-layout-footer>
+  </a-layout>
 </template>
 <script>
-import "../assets/styles/default.less";
+import 'static/css/default.less'
 export default {
-  data () {
+  data() {
     return {
+      isMobile: false,
     }
   },
   computed: {
     isHomePage: function () {
       return this.$route.path === '/'
+    },
+  },
+  mounted() {
+    if (process.browser) {
+      let ua = navigator.userAgent
+      this.isMobile = !!ua.match(/AppleWebKit.*Mobile.*/)
     }
   },
-  mounted () {
-  }
 }
 </script>

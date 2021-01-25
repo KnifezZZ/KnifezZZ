@@ -1,90 +1,107 @@
 <template>
-  <el-row>
-    <el-col :sm="{ span: 24 }" :lg="{ span: 6, offset: 4 }">
+  <a-row>
+    <a-col :sm="{ span: 24 }" :lg="{ span: 6, offset: 4 }">
       <h1>{{ currClass.Name }}</h1>
       <nuxt-link
-        class="ptag"
+        class="category-tag"
         v-for="personalTag in personalClass"
         :to="`/tags/${personalTag.Name}`"
         :key="personalTag.ID"
       >
-        <el-tag effect="plain" size="large" :hit="false">{{
+        <a-tag effect="plain" size="large" :hit="false">{{
           personalTag.Name
-        }}</el-tag>
+        }}</a-tag>
       </nuxt-link>
-    </el-col>
-    <el-col :sm="{ span: 24 }" :lg="{ span: 10 }">
-      <ul
-        class="infinite-list"
-        v-infinite-scroll="load"
-        :infinite-scroll-disabled="isLoadDisabled"
-        style="overflow: auto"
+    </a-col>
+    <a-col :sm="{ span: 24 }" :lg="{ span: 10 }">
+      <div
+        v-infinite-scroll="handleInfiniteOnLoad"
+        class="category-infinite-container"
+        :infinite-scroll-disabled="busy"
+        :infinite-scroll-distance="10"
       >
-        <li v-for="item in tagBlogs" :key="item.ID">
-          <el-card class="blog-list-item" shadow="hover">
-            <h4>
-              <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
-            </h4>
-            <p class="tag">
-              {{ item.Blog_Category }} /
-              <span>{{ item.CreateTime }}</span>
-            </p>
-          </el-card>
-        </li>
-      </ul>
-      <el-alert
-        v-if="isLoadDisabled"
-        title="没有更多了"
-        type="info"
-        :closable="false"
-        show-icon
-      ></el-alert>
-    </el-col>
-  </el-row>
+        <a-list :data-source="data">
+          <a-list-item slot="renderItem" slot-scope="item, index">
+            <a-card class="blog-list-item">
+              <nuxt-link :to="`/post/${item.Url}`">
+                <v-poster :src="item.PosterId" width="100%"></v-poster>
+              </nuxt-link>
+              <h4>
+                <nuxt-link :to="`/post/${item.Url}`">{{
+                  item.Title
+                }}</nuxt-link>
+              </h4>
+              <p class="tag">
+                {{ item.BlogCategory_Name }} |
+                <span
+                  >{{ new Date(item.CreateTime).toLocaleString() }} by
+                  {{ item.CreateBy }}</span
+                >
+                <v-icon icon="eye"> {{ item.VisitCount }}</v-icon>
+                <list-tag :item="item"></list-tag>
+              </p>
+            </a-card>
+          </a-list-item>
+          <div v-if="loading && !busy" class="category-loading-container">
+            <a-spin />
+          </div>
+        </a-list>
+      </div>
+    </a-col>
+  </a-row>
 </template>
 
 <script>
 export default {
   name: 'tag',
-  data () {
+  data() {
     return {
+      data: [],
+      loading: false,
+      busy: false,
+      page: 0,
+      totalCount: 1,
+
       tagBlogs: [],
       personalClass: [],
       currClass: [],
-      page: 1,
       TagColors: [],
-      isLoadDisabled: false,
     }
   },
-  async asyncData ({ $axios, params, app }) {
-    let res = await $axios.$get('BlogView/GetBlogClassification');
-    app.head.title = params.key + ' KnifeZ';
+  async asyncData({ $axios, params, app }) {
+    let res = await $axios.$get('BlogView/GetBlogClassification')
+    app.head.title = params.key + ' KnifeZ'
     return {
       personalClass: res,
-      currClass: res.find((x) => x.Name == params.key)
+      currClass: res.find((x) => x.Name == params.key),
     }
   },
   methods: {
-    load () {
-      if (this.personalClass.length > 0) {
-        this.$axios.$post("BlogView/BlogList", {
+    fetchData(callback) {
+      this.$axios
+        .$post('BlogView/BlogList', {
           SelectedBlogClassificationMiddleIDs: [this.currClass.ID],
           Page: this.page,
           Limit: 20,
-        }).then((res) => {
-          res.Data.forEach((element) => {
-            this.tagBlogs.push(element);
-          });
-          if (this.page * 20 >= res.Count) {
-            this.isLoadDisabled = true;
-          }
-          this.page++;
-        });
+        })
+        .then((res) => {
+          callback(res)
+        })
+    },
+    handleInfiniteOnLoad() {
+      const data = this.data
+      if (this.page * 20 >= this.totalCount) {
+        this.busy = true
+        this.loading = false
+        return
       }
-    }
-  }
+      this.page++
+      this.fetchData((res) => {
+        this.data = data.concat(res.Data)
+        this.totalCount = res.Count
+        this.loading = false
+      })
+    },
+  },
 }
 </script>
-
-<style>
-</style>

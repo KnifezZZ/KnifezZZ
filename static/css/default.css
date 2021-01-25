@@ -9,7 +9,7 @@
 }
 html,
 body {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   text-align: left;
   -webkit-text-size-adjust: none;
   box-sizing: border-box;
@@ -51,110 +51,111 @@ textarea {
 img {
   border: 0;
 }
-#knifez-blog {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: scroll;
+#__nuxt {
+  overflow-y: auto;
 }
-#knifez-blog h1 {
+#__nuxt h1 {
   font-size: 3.6rem;
   position: relative;
   text-align: center;
   transition: 0.25s;
 }
-#knifez-blog h2 {
+#__nuxt h2 {
   font-size: 2.4rem;
 }
-#knifez-blog h3 {
+#__nuxt h3 {
   font-size: 2.2rem;
   padding: 15px 5px;
 }
-#knifez-blog h4 {
+#__nuxt h4 {
   font-size: 2rem;
   padding: 5px 0px;
 }
-#knifez-blog p {
+#__nuxt p {
   line-height: 1.6;
   font-size: 1.8rem;
 }
-#knifez-blog p img {
+#__nuxt p img {
   max-width: 100%;
   border-radius: 4px;
 }
-#knifez-blog header {
-  padding: 0px;
+#__nuxt header {
+  background-color: #fff;
 }
-#knifez-blog footer {
+#__nuxt header .head-icon {
+  cursor: pointer;
+  height: 60px;
+  display: inline-block;
+}
+#__nuxt header .head-menu {
+  display: block;
+  line-height: 64px;
+  height: 64px;
+  border: 0;
+  float: right;
+}
+#__nuxt footer {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   background-color: #303133;
   color: #ecf5ff;
 }
-#knifez-blog footer span {
+#__nuxt footer span {
   padding: 5px;
 }
-#knifez-blog footer span a {
-  color: #ecf5ff;
+#__nuxt footer span a {
+  color: #aaa;
 }
-#knifez-blog main {
-  min-height: 80vh;
-}
-#knifez-blog .el-avatar > img {
-  width: 100%;
-}
-#knifez-blog .dash-center {
+#__nuxt .dash-center {
   text-align: center;
   background: #512bd4;
-  background-image: url(../../static/images/home-hero-bg.svg), linear-gradient(180deg, #7014e8 30.12%, #0e5ecf 192.47%);
+  background-image: url(../images/home-hero-bg.svg), linear-gradient(180deg, #7014e8 30.12%, #0e5ecf 192.47%);
   padding: 30px 5px;
-  margin-bottom: 10px;
 }
-#knifez-blog .dash-center h1 {
+#__nuxt .dash-center h1 {
   font-family: 'Varela Round';
   color: #ecf5ff;
   font-size: 3.5rem;
   padding: 20px 0px;
   font-weight: normal;
 }
-#knifez-blog .dash-center h2 {
+#__nuxt .dash-center h2 {
   color: #ecf5ff;
   font-weight: normal;
 }
-#knifez-blog .dash-center a {
+#__nuxt .dash-center a {
   margin: 10px;
   width: 200px;
   color: #ecf5ff;
   height: 40px;
 }
-#knifez-blog .dash-center .breadcrumb {
+#__nuxt .dash-center .breadcrumb {
   color: #ecf5ff;
   font-size: 1.6rem;
   text-align: left;
 }
-#knifez-blog .dash-center .page-info {
+#__nuxt .dash-center .page-info {
   color: #ecf5ff;
 }
-#knifez-blog .dash-center span {
+#__nuxt .dash-center span {
   margin: 5px;
 }
-#knifez-blog .author {
+#__nuxt .author {
   text-align: center;
 }
-#knifez-blog .author .name {
+#__nuxt .author .name {
   text-align: center;
 }
-#knifez-blog .author .description {
+#__nuxt .author .description {
   font-size: medium;
 }
-#knifez-blog .author-icon {
+#__nuxt .author-icon {
   height: 96px;
 }
-#knifez-blog .blog-list-item {
+#__nuxt .blog-list-item {
   margin: 5px;
 }
-#knifez-blog .blog-list-item h4 {
+#__nuxt .blog-list-item h4 {
   font-size: 1.8rem;
   text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
@@ -164,66 +165,63 @@ img {
   line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-#knifez-blog .blog-list-item h4 a {
+#__nuxt .blog-list-item h4 a {
   color: #262626;
 }
-#knifez-blog .blog-list-item h4 a:visited {
+#__nuxt .blog-list-item h4 a:visited {
   color: #262626;
 }
-#knifez-blog .blog-list-item h4 a:hover {
+#__nuxt .blog-list-item h4 a:hover {
   color: #e5494c;
 }
-#knifez-blog .blog-list-item h4 span {
+#__nuxt .blog-list-item h4 span {
   font-weight: lighter;
 }
-#knifez-blog .blog-list-item .tag {
+#__nuxt .blog-list-item .tag {
   font-size: 1.4rem;
   padding-top: 5px;
   color: #606266;
 }
-#knifez-blog .blog-list-item .tag span {
+#__nuxt .blog-list-item .tag span {
   margin: 5px;
 }
-#knifez-blog .hot-blogs h4,
-#knifez-blog .recommend-blog h4 {
+#__nuxt .hot-blogs,
+#__nuxt .recommend-blog {
   padding: 20px 10px 10px 24px;
   position: relative;
 }
-#knifez-blog .hot-blogs h4 i,
-#knifez-blog .recommend-blog h4 i {
-  color: #512bd4;
-  margin-right: 5px;
-}
-#knifez-blog .hot-blogs h4::before,
-#knifez-blog .recommend-blog h4::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  bottom: -12px;
+#__nuxt .hot-blogs h3::before,
+#__nuxt .recommend-blog h3::before {
+  content: '';
+  position: relative;
+  left: 0px;
+  bottom: -40px;
   display: block;
-  width: 39px;
+  width: 70px;
   height: 2px;
-  background: #8167E0;
-  margin-bottom: 15px;
+  background: #8167e0;
 }
-#knifez-blog .hot-blogs li a,
-#knifez-blog .recommend-blog li a {
+#__nuxt .hot-blogs a,
+#__nuxt .recommend-blog a {
   font-size: 1.6rem;
   color: #262626;
 }
-#knifez-blog .hot-blogs li a:visited,
-#knifez-blog .recommend-blog li a:visited {
+#__nuxt .hot-blogs a:visited,
+#__nuxt .recommend-blog a:visited {
   color: #071018;
 }
-#knifez-blog .hot-blogs li a:hover,
-#knifez-blog .recommend-blog li a:hover {
+#__nuxt .hot-blogs a:hover,
+#__nuxt .recommend-blog a:hover {
   color: #e5494c;
 }
-#knifez-blog .recommend-blog li {
+#__nuxt .recommend-blog {
   margin: 15px 5px;
 }
-#knifez-blog .recommend-blog li a::before {
-  content: "";
+#__nuxt .recommend-blog li {
+  padding-bottom: 8px;
+}
+#__nuxt .recommend-blog li a::before {
+  content: '';
   width: 6px;
   height: 6px;
   background: #fd7e14;
@@ -232,7 +230,22 @@ img {
   vertical-align: middle;
   margin-right: 12px;
 }
-#knifez-blog .ptag span {
+#__nuxt .category-tag span {
   margin: 10px;
+  padding: 5px;
   border-left: 6px solid #512bd4;
+  cursor: pointer;
+}
+#__nuxt .category-infinite-container {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  overflow: auto;
+  padding: 8px 24px;
+  height: 88vh;
+}
+#__nuxt .category-loading-container {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
 }

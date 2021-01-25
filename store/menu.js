@@ -1,13 +1,13 @@
-const state = () => ({
+export const state = () => ({
     menus: []
 })
 
-const mutations = {
+export const mutations = {
     setMenus (state, list) {
         state.menus = list
     }
 }
-const actions = {
+export const actions = {
     getMenus ({ commit }, val) {
         commit("setMenus", val);
     },

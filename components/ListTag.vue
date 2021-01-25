@@ -1,12 +1,12 @@
 <template>
-  <span v-if="item.Personal_Class.length > 0">
+  <span v-if="item.BlogClassification_Name.length > 0">
     <nuxt-link
-      v-for="(personalTag, index) in item.Personal_Class.split(',')"
+      v-for="(personalTag, index) in item.BlogClassification_Name.split(',')"
       :key="item.ID + index"
-      class="ptag"
+      class="category-tag"
       :to="`/tags/${personalTag}`"
     >
-      <el-tag size="large" effect="plain">{{ personalTag }}</el-tag>
+      <a-tag>{{ personalTag }}</a-tag>
     </nuxt-link>
   </span>
 </template>

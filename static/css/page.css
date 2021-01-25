@@ -85,7 +85,7 @@
   display: block;
   width: 30px;
   height: 3px;
-  background: #8167E0;
+  background: #8167e0;
   border-radius: 4px;
   transition: 0.25s;
   z-index: 1;
@@ -96,7 +96,7 @@
 .page-body h5:hover,
 .page-body h6:hover {
   cursor: pointer;
-  color: #8167E0;
+  color: #8167e0;
 }
 .page-body h2:hover::before,
 .page-body h3:hover::before,
@@ -112,7 +112,7 @@
 }
 .page-body ul li::before,
 .page-body ol li::before {
-  content: "";
+  content: '';
   width: 6px;
   height: 6px;
   background: #fd7e14;
@@ -135,7 +135,7 @@
   margin: 16px 0;
   padding: 20px;
   background-color: #ecf5ff;
-  border-left: 6px solid #8167E0;
+  border-left: 6px solid #8167e0;
   word-break: break-word;
   font-size: 1.6rem;
   font-weight: normal;
@@ -149,12 +149,12 @@
   padding: 0 2px;
   font-weight: bold;
 }
-.page-body div[class*="language-"] {
+.page-body div[class*='language-'] {
   position: relative;
   background-color: #282c34;
   border-radius: 4px;
 }
-.page-body div[class*="language-"] .highlight-lines {
+.page-body div[class*='language-'] .highlight-lines {
   position: absolute;
   top: 0;
   left: 0;
@@ -163,11 +163,11 @@
   user-select: none;
   line-height: 1.5;
 }
-.page-body div[class*="language-"] .highlight-lines .highlighted {
+.page-body div[class*='language-'] .highlight-lines .highlighted {
   background-color: rgba(0, 0, 0, 0.66);
 }
-.page-body div[class*="language-"] pre,
-.page-body div[class*="language-"] pre[class*="language-"] {
+.page-body div[class*='language-'] pre,
+.page-body div[class*='language-'] pre[class*='language-'] {
   position: relative;
   padding: 30px 25px 20px 25px;
   border-radius: 4px;
@@ -178,10 +178,9 @@
   tab-size: 4;
   background-color: transparent;
   line-height: 1.5;
-  overflow: auto;
 }
-.page-body div[class*="language-"] pre code,
-.page-body div[class*="language-"] pre[class*="language-"] code {
+.page-body div[class*='language-'] pre code,
+.page-body div[class*='language-'] pre[class*='language-'] code {
   position: relative;
   padding: 0;
   background-color: transparent;
@@ -190,10 +189,10 @@
   border: none;
   white-space: unset !important;
 }
-.page-body div[class*="language-"].line-numbers-mode pre {
+.page-body div[class*='language-'].line-numbers-mode pre {
   padding-left: 48px;
 }
-.page-body div[class*="language-"].line-numbers-mode .line-numbers-wrapper {
+.page-body div[class*='language-'].line-numbers-mode .line-numbers-wrapper {
   position: absolute;
   top: 18px;
   padding: 12px 0;
@@ -204,8 +203,8 @@
   z-index: 2;
   font-size: 1.4rem;
 }
-.page-body div[class*="language-"].line-numbers-mode .line-numbers-wrapper::after {
-  content: "";
+.page-body div[class*='language-'].line-numbers-mode .line-numbers-wrapper::after {
+  content: '';
   position: absolute;
   top: -6px;
   left: 13px;
@@ -213,7 +212,7 @@
   height: 10px;
   line-height: 10px;
   border-radius: 50%;
-  background-color: #6545D9;
+  background-color: #6545d9;
   font-size: 1.4rem;
   text-align: center;
   cursor: pointer;
@@ -221,8 +220,8 @@
   -webkit-animation: breath 3s infinite ease-in-out alternate;
   animation: breath 3s infinite ease-in-out alternate;
 }
-.page-body div[class*="language-"].line-numbers-mode::after {
-  content: "";
+.page-body div[class*='language-'].line-numbers-mode::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -232,8 +231,8 @@
   background-color: #282c34;
   border-radius: 4px 0 0 4px;
 }
-.page-body div[class*="language-"]::before {
-  content: "";
+.page-body div[class*='language-']::before {
+  content: '';
   position: absolute;
   top: 8px;
   right: 10px;
@@ -479,7 +478,7 @@
   top: -2px;
   width: 64px;
   height: 4px;
-  background: #8167E0;
+  background: #8167e0;
   transform: translateX(-64px);
   animation: hrLine 4s ease-in-out 0s infinite;
 }
@@ -496,7 +495,7 @@
   padding: 0;
 }
 .page-body table thead tr {
-  background-color: #8167E0;
+  background-color: #8167e0;
 }
 .page-body table thead tr th {
   padding: 16px;
@@ -512,7 +511,7 @@
   border-bottom: 1px solid #e8e8e8;
 }
 .page-body table tbody tr:hover {
-  background-color: #D5CCF5;
+  background-color: #d5ccf5;
 }
 .page-body .table-of-contents {
   display: none;
@@ -521,7 +520,7 @@
   margin-top: 16px;
 }
 .page-body code {
-  color: #6545D9;
+  color: #6545d9;
   background-color: #ecf5ff;
   border: 1px solid #e4e4e4;
   padding: 1px 10px;
@@ -529,13 +528,16 @@
   margin: 3px;
   white-space: nowrap;
 }
+.page-body pre {
+  overflow: hidden;
+}
 .page-body pre code {
   padding: 0;
   border: 0;
   margin: 0;
 }
-.page-body code[class*="language-"],
-.page-body pre[class*="language-"] {
+.page-body code[class*='language-'],
+.page-body pre[class*='language-'] {
   color: #ccc;
   background: none;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -550,16 +552,15 @@
   border: none;
   hyphens: none;
 }
-.page-body pre[class*="language-"] {
+.page-body pre[class*='language-'] {
   padding: 1em;
   margin: 0.5em 0;
-  overflow: auto;
 }
-.page-body :not(pre) > code[class*="language-"],
-.page-body pre[class*="language-"] {
+.page-body :not(pre) > code[class*='language-'],
+.page-body pre[class*='language-'] {
   background: #2d2d2d;
 }
-.page-body :not(pre) > code[class*="language-"] {
+.page-body :not(pre) > code[class*='language-'] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
@@ -636,7 +637,7 @@
   -ms-high-contrast-adjust: none !important;
 }
 .page-body .katex .katex-version::after {
-  content: "0.11.1";
+  content: '0.11.1';
 }
 .page-body .katex .katex-mathml {
   position: absolute;
@@ -1422,7 +1423,7 @@
 }
 .page-body .katex .stretchy::before,
 .page-body .katex .stretchy::after {
-  content: "";
+  content: '';
 }
 .page-body .katex .hide-tail {
   width: 100%;
