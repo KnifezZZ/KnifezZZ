@@ -4,58 +4,44 @@
       <h1>{{ currCategory.Name }}</h1>
       <h2>{{ currCategory.Text }}</h2>
     </a-col>
-    <a-col>
-      <div
-        v-infinite-scroll="handleInfiniteOnLoad"
-        class="category-infinite-container"
-        :infinite-scroll-disabled="busy"
-        :infinite-scroll-distance="10"
-      >
-        <a-list
-          :grid="{ gutter: 16, xs: 1, sm: 2, md: 4, lg: 4 }"
-          :data-source="data"
-        >
-          <a-list-item slot="renderItem" slot-scope="item, index">
-            <a-card class="blog-list-item">
-              <nuxt-link :to="`/post/${item.Url}`">
-                <v-poster :src="item.PosterId" width="100%"></v-poster>
-              </nuxt-link>
-              <h4>
-                <nuxt-link :to="`/post/${item.Url}`">{{
-                  item.Title
-                }}</nuxt-link>
-              </h4>
-              <p class="tag">
-                {{ item.BlogCategory_Name }} |
-                <span
-                  >{{ new Date(item.CreateTime).toLocaleString() }} by
-                  {{ item.CreateBy }}</span
-                >
-                <v-icon icon="eye"> {{ item.VisitCount }}</v-icon>
-                <list-tag :item="item"></list-tag>
-              </p>
-            </a-card>
-          </a-list-item>
-          <div v-if="loading && !busy" class="category-loading-container">
-            <a-spin />
+    <a-col :xl="{ span: 12, offset: 6 }" :sm="{ span: 24 }">
+      <a-list :data-source="data" :loading="loading" item-layout="horizontal">
+        <template #loadMore>
+          <div
+            :style="{
+              textAlign: 'center',
+              margin: '12px',
+              height: '32px',
+              lineHeight: '32px',
+            }"
+          >
+            <a-spin v-show="loadingMore" />
+            <a-button v-if="showLoadingMore" @click="onLoadMore">
+              加载更多
+            </a-button>
           </div>
-        </a-list>
-      </div>
+        </template>
+        <a-list-item slot="renderItem" slot-scope="item, index">
+          <blog-card :item="item"></blog-card>
+        </a-list-item>
+      </a-list>
     </a-col>
   </a-row>
 </template>
 
 <script>
+import message from 'ant-design-vue/lib/message'
 export default {
   name: 'category',
   data() {
     return {
       data: [],
-      loading: false,
-      busy: false,
+      loading: true,
+      loadingMore: false,
+      showLoadingMore: false,
       currCategory: {},
-      page: 0,
-      totalCount: 1,
+      page: 1,
+      totalCount: 0,
     }
   },
   methods: {
@@ -70,18 +56,21 @@ export default {
           callback(res)
         })
     },
-    handleInfiniteOnLoad() {
-      const data = this.data
+    onLoadMore() {
       if (this.page * 20 >= this.totalCount) {
-        this.busy = true
-        this.loading = false
+        this.showLoadingMore = false
+        message.info('已加载到最后一页~')
         return
       }
       this.page++
+      this.loadingMore = true
       this.fetchData((res) => {
-        this.data = data.concat(res.Data)
         this.totalCount = res.Count
-        this.loading = false
+        this.data = this.data.concat(res.Data)
+        this.loadingMore = false
+        this.$nextTick(() => {
+          window.dispatchEvent(new Event('resize'))
+        })
       })
     },
   },
@@ -95,6 +84,11 @@ export default {
       }
       this.currCategory = menus.find((x) => x.Url == pUrl)
     }
+    this.fetchData((res) => {
+      this.loading = false
+      this.data = res.Data
+      this.totalCount = res.Count
+    })
   },
 }
 </script>

@@ -75,16 +75,19 @@
       <a-col :sm="{ span: 24 }" :lg="{ span: 5 }" class="recommend-blog">
         <a-card>
           <h4><v-icon icon="thumb-up"></v-icon> 推荐阅读</h4>
-          <ul>
-            <li v-for="item in recommends" :key="item.ID">
-              <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
-            </li>
-          </ul>
+          <blog-list
+            :blogs="recommends"
+          >
+          </blog-list>
         </a-card>
       </a-col>
       <a-col :sm="{ span: 24 }" :lg="{ span: 20, offset: 2 }" class="hot-blogs">
-          <h4><v-icon icon="fire" style="color: crimson"></v-icon> 热门文章</h4>
-          <blog-list-card :blogs="hotBlogs" :grid="{ gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, }"></blog-list-card>
+        <h4><v-icon icon="fire" style="color: crimson"></v-icon> 热门文章</h4>
+        <blog-list-card
+          :blogs="hotBlogs"
+          :grid="{ gutter: 16, xs: 1, md: 3, lg: 3 }"
+        >
+        </blog-list-card>
       </a-col>
     </template>
   </a-row>
@@ -170,7 +173,7 @@ export default {
     )
     let hotBlogs = await $axios.$post('BlogView/BlogList', {
       Page: 1,
-      Limit: 4,
+      Limit: 6,
       BlogCategoryId: res.BlogCategoryId,
       SortInfo: {
         Direction: 1,

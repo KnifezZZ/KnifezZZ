@@ -526,7 +526,6 @@
   padding: 1px 10px;
   border-radius: 4px;
   margin: 3px;
-  white-space: nowrap;
 }
 .page-body pre {
   overflow: hidden;
@@ -551,6 +550,7 @@
   tab-size: 4;
   border: none;
   hyphens: none;
+  overflow-x: auto;
 }
 .page-body pre[class*='language-'] {
   padding: 1em;

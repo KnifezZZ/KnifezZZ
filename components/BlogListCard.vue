@@ -1,26 +1,7 @@
 <template>
-  <a-list
-    :grid="grid"
-    :data-source="blogs"
-  >
+  <a-list :grid="grid" :data-source="blogs">
     <a-list-item slot="renderItem" slot-scope="item, index">
-      <a-card class="blog-list-item">
-        <nuxt-link :to="`/post/${item.Url}`">
-          <v-poster :src="item.PosterId" width="100%"></v-poster>
-        </nuxt-link>
-        <h4>
-          <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
-        </h4>
-        <p class="tag">
-          {{ item.BlogCategory_Name }} |
-          <span
-            >{{ new Date(item.CreateTime).toLocaleString() }} by
-            {{ item.CreateBy }}</span
-          >
-          <v-icon icon="eye"> {{ item.VisitCount }}</v-icon>
-          <list-tag :item="item"></list-tag>
-        </p>
-      </a-card>
+      <blog-card :item="item"></blog-card>
     </a-list-item>
   </a-list>
 </template>
