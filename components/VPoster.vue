@@ -1,31 +1,42 @@
 <template>
-  <img :src="url" />
+  <div :style="`background-image:${url}`" class="rand-poster"><slot /></div>
 </template>
 
 <script>
 export default {
-  name: "VPoster",
+  name: 'VPoster',
   props: {
     src: {
       type: String | null,
       required: true,
-      default: function() {
-        return null;
-      }
-    }
+      default: function () {
+        return null
+      },
+    },
   },
   data() {
     return {
-      url: ""
-    };
+      url: '',
+    }
   },
   created() {
-    this.url = this.src;
-    if (this.src !== null && this.src !== undefined) {
-      this.url = "/api/_file/getfile/" + this.src;
-    } else {
-      this.url = "/images/default-pic-2.jpg";
+    var GeoPattern = require('geopattern')
+    var pattern = GeoPattern.generate(this.src)
+    this.url = pattern.toDataUrl()
+  },
+}
+</script>
+<style lang="less">
+.rand-poster {
+  width: 100%;
+  height: 240px;
+  margin: 0;
+  padding: 10px;
+  h4 {
+    font-size: 2rem;
+    a {
+      color: aliceblue !important;
     }
   }
-};
-</script>
+}
+</style>

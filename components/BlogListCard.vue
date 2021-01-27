@@ -19,9 +19,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.card-cell {
-  margin-bottom: 10px;
-}
-</style>

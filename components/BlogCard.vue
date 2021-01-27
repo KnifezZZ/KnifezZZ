@@ -1,11 +1,20 @@
 <template>
   <a-card class="blog-list-item">
-    <h4>
-      <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
-    </h4>
     <div v-if="item.PosterId">
+      <h4>
+        <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
+      </h4>
       <nuxt-link :to="`/post/${item.Url}`">
-        <v-poster :src="item.PosterId" width="100%"></v-poster>
+        <img :src="`/api/_file/getfile/${item.PosterId}`" width="100%" />
+      </nuxt-link>
+    </div>
+    <div v-else>
+      <nuxt-link :to="`/post/${item.Url}`">
+        <v-poster :src="item.Url">
+          <h4>
+            <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
+          </h4>
+        </v-poster>
       </nuxt-link>
     </div>
     <p class="tag">
