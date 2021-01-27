@@ -43,19 +43,17 @@ export default {
             return ele.ParentId == pid
           })
           .map((item) => {
-            if (item.Url !== '/') {
-              const itemChild = getChilders(item.Id, item.children)
-              children.push({
-                path: item.Url,
-                name: item.Name,
-                meta: {
-                  key: item.id,
-                  icon: item.Icon,
-                  title: item.Name,
-                },
-                children: itemChild,
-              })
-            }
+            const itemChild = getChilders(item.Id, item.children)
+            children.push({
+              path: item.Url,
+              name: item.Name,
+              meta: {
+                key: item.id,
+                icon: item.Icon,
+                title: item.Name,
+              },
+              children: itemChild,
+            })
           })
         return children
       }
