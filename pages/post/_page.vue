@@ -72,18 +72,9 @@
       </a-card>
     </a-col>
     <template v-if="!blogData.IsSinglePage">
-      <a-col
-        :sm="{ span: 24 }"
-        :lg="{ span: 20, offset: 2 }"
-        class="recommend-blog"
-      >
-        <h4><v-icon icon="thumb-up"></v-icon> 推荐阅读</h4>
-        <blog-list :blogs="recommends" :grid="{ gutter: 16, ms: 1, lg: 3 }">
-        </blog-list>
-      </a-col>
-      <a-col :sm="{ span: 24 }" :lg="{ span: 20, offset: 2 }" class="hot-blogs">
+      <a-col :sm="{ span: 24 }" :lg="{ span: 12, offset: 6 }" class="hot-blogs">
         <h4><v-icon icon="fire" style="color: crimson"></v-icon> 热门文章</h4>
-        <blog-list-card :blogs="hotBlogs" :grid="{ gutter: 16, ms: 1, lg: 2 }">
+        <blog-list-card :blogs="hotBlogs">
         </blog-list-card>
       </a-col>
     </template>
@@ -165,9 +156,6 @@ export default {
         '&currDate=' +
         res.CreateTime
     )
-    let recommends = await $axios.$get(
-      'BlogView/GetRecommendBlogs?title=' + res.title
-    )
     let hotBlogs = await $axios.$post('BlogView/BlogList', {
       Page: 1,
       Limit: 6,
@@ -184,7 +172,6 @@ export default {
       categoryUrl: res.BlogCategory_Url,
       parentCate: res.BlogCategory_Parent,
       hotBlogs: hotBlogs.Data,
-      recommends: recommends,
       innerBlogs: innerBlogs,
     }
   },

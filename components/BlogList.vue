@@ -1,15 +1,8 @@
 <template>
   <a-list :grid="grid" :data-source="blogs">
     <a-list-item slot="renderItem" slot-scope="item, index">
-      <a-card class="blog-relate-item">
-        <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
-        <p class="tag">
-          <span>
-            {{ new Date(item.CreateTime).toLocaleString() }}
-          </span>
-          <v-icon icon="eye"> {{ item.VisitCount }}</v-icon>
-        </p>
-      </a-card>
+        <nuxt-link :to="`/post/${item.Url}`">{{index+1}}. {{ item.Title }}</nuxt-link>
+        <!-- <v-icon icon="eye"> {{ item.VisitCount }}</v-icon>  -->
     </a-list-item>
   </a-list>
 </template>

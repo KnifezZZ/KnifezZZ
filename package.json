@@ -11,7 +11,7 @@
   "config": {
     "nuxt": {
       "host": "127.0.0.1",
-      "port": "5210"
+      "port": "5211"
     }
   },
   "dependencies": {

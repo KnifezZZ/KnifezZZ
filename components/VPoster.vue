@@ -1,5 +1,5 @@
 <template>
-  <div :style="`background-image:${url}`" class="rand-poster"><slot /></div>
+  <div :style="`background-image:${url}`" class="rand-poster"></div>
 </template>
 
 <script>
@@ -31,12 +31,5 @@ export default {
   width: 100%;
   height: 240px;
   margin: 0;
-  padding: 10px;
-  h4 {
-    font-size: 2rem;
-    a {
-      color: aliceblue !important;
-    }
-  }
 }
 </style>

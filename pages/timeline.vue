@@ -8,17 +8,17 @@
         <a-timeline-item v-for="item in data" :key="item.Url">
           <a-card class="blog-list-item">
             <p>
-              <v-icon icon="time"></v-icon>
-              {{ new Date(item.CreateTime).toLocaleString() }}
-            </p>
-            <h4>
-              <nuxt-link :to="`/post/${item.Url}`">{{ item.Title }}</nuxt-link>
-            </h4>
-            <p class="tag">
-              <span> {{ item.CreateBy }}</span>
-              <v-icon icon="eye"> {{ item.VisitCount }}</v-icon>
+              <v-icon icon="time">
+                {{ new Date(item.CreateTime).toLocaleString() }}
+              </v-icon>
+              <!-- <v-icon icon="eye"> {{ item.VisitCount }}</v-icon> -->
               <list-tag :item="item"></list-tag>
             </p>
+            <h4>
+              <nuxt-link :to="`/post/${item.Url}`">
+                {{ item.Title }}
+              </nuxt-link>
+            </h4>
           </a-card>
         </a-timeline-item>
         <div

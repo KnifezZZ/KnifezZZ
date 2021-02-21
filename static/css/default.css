@@ -211,7 +211,7 @@ img {
 }
 #__nuxt .hot-blogs,
 #__nuxt .recommend-blog {
-  padding: 20px 10px 10px 24px;
+  padding: 10px;
   position: relative;
 }
 #__nuxt .hot-blogs h3::before,
@@ -228,6 +228,7 @@ img {
 #__nuxt .hot-blogs a,
 #__nuxt .recommend-blog a {
   color: #262626;
+  font-size: 1.6rem;
 }
 #__nuxt .hot-blogs a:visited,
 #__nuxt .recommend-blog a:visited {

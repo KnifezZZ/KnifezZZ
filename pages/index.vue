@@ -4,11 +4,11 @@
       <h1>{{ mainTitle }}</h1>
       <h2>{{ description }}</h2>
     </div>
-    <a-col :sm="{ span: 24 }" :lg="{ span: 8, offset: 6 }" class="latest-blogs">
+    <a-col :sm="{ span: 24 }" :lg="{ span: 10, offset: 5 }">
       <h3><v-icon icon="cup"></v-icon> 最新发布</h3>
       <blog-list-card :blogs="homeBlogs.Data"></blog-list-card>
     </a-col>
-    <a-col :sm="{ span: 24 }" :lg="{ span: 8, offset: 1 }" class="hot-blogs">
+    <a-col :sm="{ span: 24 }" :lg="{ span: 6, offset: 1 }" class="hot-blogs">
       <h3><v-icon icon="fire" style="color:crimson"></v-icon> 热门博文</h3>
       <blog-list :blogs="hotBlogs.Data"></blog-list>
     </a-col>
