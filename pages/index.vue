@@ -5,11 +5,10 @@
       <h2>{{ description }}</h2>
     </div>
     <a-col :sm="{ span: 24 }" :lg="{ span: 10, offset: 5 }">
-      <h3><v-icon icon="cup"></v-icon> 最新发布</h3>
       <blog-list-card :blogs="homeBlogs.Data"></blog-list-card>
     </a-col>
     <a-col :sm="{ span: 24 }" :lg="{ span: 6, offset: 1 }" class="hot-blogs">
-      <h3><v-icon icon="fire" style="color:crimson"></v-icon> 热门博文</h3>
+      <h3><v-icon icon="fire" style="color: crimson"></v-icon> 阅读排行</h3>
       <blog-list :blogs="hotBlogs.Data"></blog-list>
     </a-col>
   </a-row>
@@ -21,7 +20,7 @@ export default {
     return {
       loading: false,
       mainTitle: 'KnifeZ',
-      description: '真正的大师，永远怀着一颗学徒的心。',
+      description: '真正的大师，永远怀着一颗学徒的心',
     }
   },
   async asyncData({ $axios, app }) {

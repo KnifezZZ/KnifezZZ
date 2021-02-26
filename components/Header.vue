@@ -60,11 +60,6 @@ export default {
       const tree = getChilders(null, [])
       return tree
     },
-    getAuthorInfo() {
-      this.$axios.$get("BlogView/GetAuthorInfo?user=''").then((res) => {
-        this.info = res
-      })
-    },
   },
   mounted() {},
 }

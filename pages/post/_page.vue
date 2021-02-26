@@ -39,11 +39,11 @@
           <p>
             <img
               :src="require('static/images/reward/alipay.jpg')"
-              style="width: 30%"
+              style="width: 200px"
             />
             <img
               :src="require('static/images/reward/wechat.jpg')"
-              style="width: 30%"
+              style="width: 200px"
             />
           </p>
         </div>
