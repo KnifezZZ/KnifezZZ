@@ -71,11 +71,13 @@
         </template>
       </a-card>
     </a-col>
+    <a-col :sm="{ span: 24 }" :lg="{ span: 12, offset: 6 }">
+      <comment :comments="comments"></comment>
+    </a-col>
     <template v-if="!blogData.IsSinglePage">
       <a-col :sm="{ span: 24 }" :lg="{ span: 12, offset: 6 }" class="hot-blogs">
         <h4><v-icon icon="fire" style="color: crimson"></v-icon> 热门文章</h4>
-        <blog-list-card :blogs="hotBlogs">
-        </blog-list-card>
+        <blog-list-card :blogs="hotBlogs"> </blog-list-card>
       </a-col>
     </template>
   </a-row>
@@ -83,8 +85,10 @@
 
 <script>
 import 'static/css/page.less'
+import Comment from '~/components/Comment.vue'
 // import markdownItTocAndAnchor from "markdown-it-toc-and-anchor";
 export default {
+  components: { Comment },
   name: 'posts',
   data() {
     return {
@@ -150,6 +154,7 @@ export default {
     //.use(markdownItTocAndAnchor, { tocFirstLevel: 2 });
     let res = await $axios.$get('BlogView/BlogDetail?url=' + params.page)
     app.head.title = res.Title + ' KnifeZ'
+    let comments = res.Comments
     let innerBlogs = await $axios.$get(
       'BlogView/GetInnerBlog?user=' +
         res.CreateBy +
@@ -173,6 +178,7 @@ export default {
       parentCate: res.BlogCategory_Parent,
       hotBlogs: hotBlogs.Data,
       innerBlogs: innerBlogs,
+      comments: comments,
     }
   },
   mounted() {

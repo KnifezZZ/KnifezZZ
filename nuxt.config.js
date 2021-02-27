@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'KnifeZ,博客记录',
+    title: 'KnifeZ-爱编程爱生活的',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -59,8 +59,8 @@ export default {
    */
   proxy: {
     '/api/': {
-      target: 'https://blog.knifez18.com',
-      // target: 'http://localhost:4830',
+      // target: 'https://blog.knifez18.com',
+      target: 'http://localhost:4830',
       pathRewrite: {
         '^/api/': '/api/',
         changeOrigin: true,

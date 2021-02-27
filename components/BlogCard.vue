@@ -28,6 +28,7 @@
         {{ item.CreateBy }}</span
       >
       <v-icon icon="eye"> {{ item.VisitCount }}</v-icon>
+      <v-icon icon="message-2"> {{ item.CommentCount }}</v-icon>
     </template>
   </a-card>
 </template>
