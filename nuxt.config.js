@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'KnifeZ-爱编程爱生活的',
+    title: 'KnifeZ的个人博客',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -9,7 +9,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          '主业.net，略懂WPF、Xamarin,Vue,熟练掌握Sql Server/MySql/Sqlite的拼写，单机游戏爱好者',
+          '全栈(干)工程师,擅长asp.net,.net core;略懂WPF、Xamarin,Vue;熟练掌握Sql Server/MySql/Sqlite的拼写，单机游戏爱好者',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
